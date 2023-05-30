@@ -1,9 +1,9 @@
-FROM debian:buster
+FROM debian:bullseye
   
 RUN groupadd --gid 1000 jenkins && useradd -rm -d /home/jenkins -s /bin/bash -g root -G sudo -u 1000 -g 1000 jenkins
 
 RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y devscripts quilt chrpath git wget apt-utils tzdata debhelper
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y devscripts quilt chrpath git wget apt-utils tzdata debhelper libudev-dev
 
 # For rust projects
 # From https://github.com/rust-lang/docker-rust/blob/77e77508828ca2da1a9b7582d079b2d77f8b9a1a/1.52.1/buster/Dockerfile

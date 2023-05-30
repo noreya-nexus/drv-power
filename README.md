@@ -30,8 +30,8 @@ cargo build
 ### Docker
 There is a Dockerfile in the project which allows you to build the project for arm64:
 ```
-docker build -t rust-cross-build .
-docker run -t --rm -w "$PWD" -v "$PWD:$PWD":rw,z rust-cross-build cargo build --target=aarch64-unknown-linux-gnu
+docker buildx build --platform linux/arm64 -t rust-cross-build .
+docker run --platform linux/arm64 -t --rm -w "$PWD" -v "$PWD:$PWD":rw,z rust-cross-build cargo build --target=aarch64-unknown-linux-gnu
 ```
 
 ## Packaging

@@ -17,6 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install apt packages
+      run: DEBIAN_FRONTEND="noninteractive" apt-get install -y libudev-dev
     - name: Install dependency
       run: cargo install cargo2junit
     - name: Test driver library and export results
