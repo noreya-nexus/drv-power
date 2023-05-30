@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install apt packages
+    - name: Update cache
       run: DEBIAN_FRONTEND="noninteractive" apt-get update
     - name: Install apt packages
       run: DEBIAN_FRONTEND="noninteractive" apt-get install -y libudev-dev
