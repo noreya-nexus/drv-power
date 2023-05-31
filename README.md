@@ -14,8 +14,7 @@ The only application using the UDS-API is the [rest-power driver](https://github
 It is recommended to use the HTTP RESTful API for applications (network and local) as it is stable and finalized.  
 If you still want to use the API you should check the source code of the [rest-power driver](https://github.com/noreya-nexus/rest-power).  
 
-Most of the functionality is in the [noreya-nexus-sdbp](https://github.com/noreya-nexus/rustlib-noreya-nexus-sdbp) lib.
-
+Most of the functionality is in the [rustlib-noreya-sdbp](https://github.com/noreya-nexus/rustlib-noreya-sdbp) lib.
 
 ## Building
 To build this project for the target platform the "aarch64-unknown-linux-gnu" target must be installed via *rustup*.    
@@ -31,7 +30,8 @@ cargo build
 There is a Dockerfile in the project which allows you to build the project for arm64:
 ```
 docker buildx build --platform linux/arm64 -t rust-cross-build .
-docker run --platform linux/arm64 -t --rm -w "$PWD" -v "$PWD:$PWD":rw,z rust-cross-build cargo build --target=aarch64-unknown-linux-gnu
+docker run --platform linux/arm64 -t --rm -w "$PWD" -v "$PWD:$PWD":rw,z rust-cross-build cargo build --target=aarch64-unknown-linux-gnu --release
+docker run --platform linux/arm64 -t --rm -w "$PWD" -v "$PWD:$PWD":rw,z rust-cross-build ./makedeb_github.sh
 ```
 
 ## Packaging
